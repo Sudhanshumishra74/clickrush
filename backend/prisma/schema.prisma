@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+enum GameStatus {
+  RUNNING
+  COMPLETED
+}
+model User {
+  id           Int           @id @default(autoincrement())
+  name         String
+  email        String        @unique
+  passwordHash String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  gameSessions GameSession[]
+  gameResults  GameResult[]
+}
+
+model GameSession {
+  id        Int        @id @default(autoincrement())
+  userId    Int
+  startedAt DateTime   @default(now())
+  endedAt   DateTime?
+  status    GameStatus @default(RUNNING)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  user   User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  result GameResult?
+
+  @@index([userId])
+  @@index([startedAt])
+  @@index([endedAt])
+}
+
+model GameResult {
+  id            Int      @id @default(autoincrement())
+  userId        Int
+  score         Int
+  clicks        Int
+  gameSessionId Int      @unique
+  playedAt      DateTime @default(now())
+  createdAt     DateTime @default(now())
+
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  gameSession GameSession @relation(fields: [gameSessionId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([playedAt])
+  @@index([score])
+}
