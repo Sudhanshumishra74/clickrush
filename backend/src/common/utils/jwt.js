@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken"
 
 const generateKey = () => {
   return crypto.randomBytes(32).toString("hex")
-
 }
 
 const generateAccessToken = (payload) => {
