@@ -4,6 +4,8 @@ import authRoutes from "./modules/auth/auth.routes.js";
 import cookieParser from "cookie-parser";
 import gameSessionRoutes from "./modules/gameSession/gameSession.routes.js"; 
 import gameResultRoutes from "./modules/gameResult/gameResult.routes.js";
+import leaderboardRoutes from "./modules/leaderboard/leaderboard.routes.js";
+import profileRoutes from "./modules/profile/profile.routes.js";
 
 
 const app = express();
@@ -13,6 +15,10 @@ app.use(cookieParser());
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/game-sessions", gameSessionRoutes);
 app.use("/api/v1/game-results",gameResultRoutes);
+app.use("/api/v1/leaderboard",leaderboardRoutes);
+
+
+app.use( "/api/v1/profile", profileRoutes);
 
 app.use(errorMiddleware);
 
