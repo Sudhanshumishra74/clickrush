@@ -24,6 +24,7 @@ const authenticate = async (req, res, next) => {
   const { passwordHash: _, ...safeUser } = user;
 
   req.user = safeUser;
+  
 
   next();
 };
