@@ -2,9 +2,11 @@ generator client {
   provider = "prisma-client-js"
 }
 
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+
 }
 
 
@@ -22,6 +24,7 @@ model User {
 
   gameSessions GameSession[]
   gameResults  GameResult[]
+  refreshTokens RefreshToken[]
 }
 
 model GameSession {
@@ -56,4 +59,17 @@ model GameResult {
   @@index([userId])
   @@index([playedAt])
   @@index([score])
+}
+
+model RefreshToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
 }
