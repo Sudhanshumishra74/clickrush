@@ -9,7 +9,13 @@ const authenticate = async (req, res, next) => {
     throw ApiError.unauthorized("Not authenticated");
   }
 
-  const decoded = verifyAccessToken(token);
+  let decoded;
+
+  try {
+    decoded = verifyAccessToken(token);
+  } catch (error) {
+    throw ApiError.unauthorized("Invalid or expired access token");
+  }
 
   const user = await prisma.user.findUnique({
     where: {
@@ -24,7 +30,6 @@ const authenticate = async (req, res, next) => {
   const { passwordHash: _, ...safeUser } = user;
 
   req.user = safeUser;
-  
 
   next();
 };
