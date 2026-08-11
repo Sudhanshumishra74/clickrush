@@ -84,13 +84,8 @@ For a live demo, deploy the frontend and backend separately, then update `VITE_A
 
 Suggested flow:
 
-1. Deploy the backend to Render, Railway, or a similar Node host.
-2. Deploy the frontend to Vercel, Netlify, or a similar static host.
+1. Deploy the backend on Render.
+2. Deploy the frontend on Vercel
 3. Set the production API URL in the frontend environment variables.
 4. Update the backend CORS origin to match the deployed frontend.
 
-## Future Updates
-
-- Add the final live demo URL
-- Add screenshots or a short feature showcase
-- Add production deployment notes if the hosting setup changes
