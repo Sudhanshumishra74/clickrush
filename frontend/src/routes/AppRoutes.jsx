@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import Login from "../pages/auth/Login.jsx";
+import Login from "../pages/auth/login.jsx";
 import Signup from "../pages/auth/Signup.jsx";
 import Dashboard from "../pages/Dashboard.jsx";
 import Game from "../pages/game/Game.jsx";
