@@ -17,25 +17,11 @@ function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Home />} />
 
-      <Route
-       path="/"
-      element={
-       <ProtectedRoute>
-        <Home />
-       </ProtectedRoute>
-    }
-     />
+        <Route path="/login" element={<Login />} />
 
-        <Route
-          path="/login"
-          element={<Login />}
-        />
-
-        <Route
-          path="/signup"
-          element={<Signup />}
-        />
+        <Route path="/signup" element={<Signup />} />
 
         <Route
           path="/dashboard"
@@ -57,21 +43,21 @@ function AppRoutes() {
 
         <Route
           path="/leaderboard"
-        element={
-           <ProtectedRoute>
-           <Leaderboard />
-          </ProtectedRoute>
+          element={
+            <ProtectedRoute>
+              <Leaderboard />
+            </ProtectedRoute>
           }
-           />
+        />
 
-           <Route
-            path="/profile"
-              element={
-              <ProtectedRoute>
-                 <Profile />
-              </ProtectedRoute>
-         }
-          />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
