@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Home, LayoutGrid, PlayCircle, Trophy, UserCircle2, LogOut } from "lucide-react";
-import { useAuth } from "../context/AuthContext.jsx";
+import { useAuth } from "../context/authContext.jsx";
 
 const links = [
   { to: "/", label: "Home", icon: Home },

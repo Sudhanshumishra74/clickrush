@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, BarChart3, Clock3, PlayCircle, Sparkles, Target, Trophy, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../context/AuthContext.jsx";
+import { useAuth } from "../context/authContext.jsx";
 import Navbar from "../components/Navbar.jsx";
 import Card from "../components/Card.jsx";
 
