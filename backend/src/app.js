@@ -2,7 +2,7 @@ import express from "express";
 import errorMiddleware from "./common/middleware/error.middleware.js";
 import authRoutes from "./modules/auth/auth.routes.js";
 import cookieParser from "cookie-parser";
-import gameSessionRoutes from "./modules/gameSession/gameSession.routes.js"; 
+import gameSessionRoutes from "./modules/GameSession/gameSession.routes.js"; 
 import gameResultRoutes from "./modules/gameResult/gameResult.routes.js";
 import leaderboardRoutes from "./modules/leaderboard/leaderboard.routes.js";
 import profileRoutes from "./modules/profile/profile.routes.js";
