@@ -4,8 +4,8 @@ ClickRush is a fast-paced click challenge app with authentication, game sessions
 
 ## Live Demo
 
-- Live website: [add your deployed URL here]
-- Demo notes: [update later]
+- Live website: https://clickrush-r12l.vercel.app/
+- Demo :  https://www.loom.com/share/62d3a0c88f9144f59e619579b5615b56
 
 ## Features
 
